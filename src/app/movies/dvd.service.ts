@@ -1,31 +1,30 @@
 import { Injectable } from '@angular/core';
 
-import { Actor } from './actor';
-// import { ACTORS } from './mock-actors';
+import { DVD } from './dvd';
 import { Http, Response, Headers } from '@angular/http';
 import { Observable }               from 'rxjs/Observable';
 
 @Injectable()
-export class ActorService {
+export class DVDService {
 
   constructor(private http:Http){
   }
  
   private headers = new Headers({ 'Content-Type': 'application/json' });  
-  // private baseUrl: string   = this.baseUrl + "/actor"; 
-  private baseUrl: string   = "http://http://localhost:8082/api" + "/actor"; 
+  // private baseUrl: string   = this.baseUrl + "/dvd"; 
+  private baseUrl: string   = "http://http://localhost:8082/api" + "/dvd"; 
 
-  // getActorById(id: number): Observable<Actor> {
+  // getDVDById(id: number): Observable<DVD> {
   //     return this.http.get(this.baseUrl+"/" + id).map(res => res.json());
   //   }
-  // getActors(): Observable<Actor[]> {
+  // getDVDs(): Observable<DVD[]> {
   //   return this.http.get(this.baseUrl).map(res => res.json());
   // }
-  // getActor(): Promise<Actor[]> {
-  //   return Promise.resolve(ACTORS);
+  // getDVD(): Promise<DVD[]> {
+  //   return Promise.resolve(DVDS);
   // }
-  getActors(){
+  getDVDs(){
     return this.http.get(this.baseUrl)
-    .map(res => <Actor[]>res.json());
+    .map(res => <DVD[]>res.json());
   }
 }
